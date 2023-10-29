@@ -84,12 +84,14 @@ export const signup = async (
       }, 1500);
     }
   } catch (err) {
-    let message =
-      typeof err.response !== "undefined"
-        ? err.response.data.message
-        : err.message;
-    showAlert("error", "Error: password are not same!", message);
+  let message;
+  if (err.response && err.response.data && err.response.data.message) {
+    message = err.response.data.message;
+  } else {
+    message = err.message || "Something went wrong!";
   }
+  showAlert("error", message);
+}
 };
 
 document.querySelector(".form").addEventListener("submit", (e) => {
@@ -100,7 +102,7 @@ document.querySelector(".form").addEventListener("submit", (e) => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const passwordConfirm = document.getElementById("passwordConfirm").value;
-  //   signup(name, cidNumber, contactNumber, email, password, passwordConfirm);
+
   validateInputs();
   signup(name, cidNumber, contactNumber, email, password, passwordConfirm);
 });
@@ -118,54 +120,68 @@ const validateInputs = () => {
 
   if (username1value === "") {
     setError(username1, "username1 cannot be blank");
+    // return false;
   } else if (!(username1value.length >= 3 && username1value.length <= 25)) {
     setError(username1, "length of usename should be inbetween 3 and 25");
+    // return false;
   } else if (!username1validate(username1value)) {
     setError(username1, "usename should be only alphabate");
+    // return false;
   } else {
     setSuccess(username1);
   }
 
   if (cid1value === "") {
     setError(cid1, "cid1 cannot be blank");
+    // return false;
   } else if (cid1value.length !== 11) {
     setError(cid1, "length of cid1 number should be 11");
+    // return false;
   } else if (!iscid1Valid(cid1value)) {
     setError(cid1, "cid1 number is not valid");
+    // return false;
   } else {
     setSuccess(cid1);
   }
 
   if (contact1value === "") {
     setError(contact1, "contact1 number cannot be blank");
+    // return false;
   }else if(contact1value.length !==8){
     setError(contact1, "phone number should be of 8 digit")
+    // return false;
   } else if (!contact1validate(contact1value)) {
     setError(
       contact1,
       "contact1 number should start with 17 or 77"
     );
+    // return false;
   }else{
     setSuccess(contact1)
   }
 
   if (email1value === "") {
     setError(email1, "email1 cannot be blank");
+    // return false;
   } else if (!isemail1Valid(email1value)) {
     setError(email1, "email1 is not in proper formate");
+    // return false;
   } else {
     setSuccess(email1);
   }
 
   if (passwordvalue === "") {
     setError(password1, "password cannot be blank");
+    // return false;
   } else if (passwordvalue.length <= 8) {
     setError(password1, "it should be atleast 8 character");
+    // return false;
   } else if (!isPasswordSecure(passwordvalue)) {
     setError(
       password1,
       "password should be minimum of 8 character,\nshould contain a capital letter and small letter, \natleast a number and a special character "
     );
+    // return false;
   }
   else{
     setSuccess(password1)
@@ -173,9 +189,13 @@ const validateInputs = () => {
 
   if (password2value === "") {
     setError(password2_1, "confirm password cannot be empty");
+    // return false;
   } else if (password2value !== passwordvalue) {
     setError(password2_1, "confirm password and password should be same");
+    // return false;
   } else {
     setSuccess(password2_1);
   }
+
+  // return true;
 };

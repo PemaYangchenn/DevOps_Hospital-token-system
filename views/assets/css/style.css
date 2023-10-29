@@ -164,6 +164,7 @@ h6 {
   font-size: 14px;
   display: inline-block;
   border: 2px solid #ffc451;
+  margin-top: 5%;
 }
 
 .get-started-btn:hover {
@@ -1549,4 +1550,33 @@ section {
   text-align: center;
   font-size: 13px;
   color: #fff;
+}
+
+/* Styling for the pop-up form */
+.popup-form {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+button {
+  margin-top: 5%;
+  border-color: #fdda0d;
+  border: 2px solid;
+  border-radius: 7%;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+
+button:hover {
+  color: black;
+  background-color: #ffd584;
+  text-decoration: none;
 }

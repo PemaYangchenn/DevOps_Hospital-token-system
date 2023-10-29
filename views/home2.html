@@ -108,6 +108,60 @@
           </div>
         </div>
 
+                <button
+          onclick="document.getElementById('popupForm').style.display='block'"
+        >
+          Register Token
+        </button>
+
+        <div id="popupForm" class="popup-form">
+          <h2>Token Registration</h2>
+          <form>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required /><br /><br />
+
+            <label for="sickness">Sickness:</label>
+            <select id="sickness" name="sickness" required>
+              <option value="">Select Sickness</option>
+              <option value="Anesthesiology">Anesthesiology</option>
+              <option value="Dentistry">Dentistry</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="ENT">ENT</option>
+              <option value="Forensic Medicine">Forensic Medicine</option>
+              <option value="Gynae/Obs">Gynae/Obs</option>
+              <option value="Medical">Medical</option>
+              <option value="Ophthalmology">Ophthalmology</option>
+              <option value="Orthopaedic">Orthopaedic</option>
+              <option value="Paediatrics">Paediatrics</option>
+              <option value="Psychiatry">Psychiatry</option>
+              <option value="Surgical">Surgical</option>
+              <option value="Pathology">Pathology</option>
+              <option value="CT unit">CT unit</option>
+              <option value="MRI">MRI</option>
+              <option value="Ultrasonography">Ultrasonography</option>
+              <option value="Ultrasound unit">Ultrasound unit</option>
+              <option value="X-Ray">X-Ray</option>
+            </select>
+          </form>
+        </div>
+
+        <div id="popupForm" class="popup-form">
+          <h2>Token Registration</h2>
+          <form>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required /><br /><br />
+
+            <label for="sickness">Sickness:</label>
+            <input
+              type="text"
+              id="sickness"
+              name="sickness"
+              required
+            /><br /><br />
+
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
         <div
           class="row gy-4 mt-5 justify-content-center"
           data-aos="zoom-in"
