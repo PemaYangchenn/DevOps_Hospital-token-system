@@ -1,4 +1,7 @@
 import { showAlert } from "./alert.js";
+// ========= trying the read from database ========
+//  =========== === ends ===========================
+
 // ======================= ========================================== ============================== ====================
 // new code implementation
 const username1 = document.getElementById("name");
@@ -57,12 +60,36 @@ const isPasswordSecure = (password1) => {
 export const signup = async (
   name,
   cidNumber,
+  cidNumberr,
   contactNumber,
   email,
+  emaill,
   password,
   passwordConfirm
 ) => {
-  console.log("Hello Everybody 2");
+  //  ======== reading the data of backend =======
+const getusers = await axios({
+  method: "GET",
+  url: "http://localhost:4001/api/v1/users"
+})
+
+const allusers = getusers.data.data;
+console.log(allusers);
+
+const emailArray = allusers.map(user => user.email);
+for (let i in emailArray) {
+  if (emailArray[i] === email){
+    setError(emaill, "the email already exists")
+  }
+}
+
+const cidArray = allusers.map(user => user.cidNumber);
+for (let i in cidArray) {
+  if (cidArray[i] === cidNumber){
+    setError(cidNumberr, "The cid number already exists")
+  }
+}
+// the code ends here ============================
   try {
     const res = await axios({
       method: "POST",
@@ -98,15 +125,16 @@ document.querySelector(".form").addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value;
   const cidNumber = document.getElementById("cidNumber").value;
+  const cidNumberr = document.getElementById("cidNumber");
   const contactNumber = document.getElementById("contactNumber").value;
   const email = document.getElementById("email").value;
+  const emaill = document.getElementById("email");
   const password = document.getElementById("password").value;
   const passwordConfirm = document.getElementById("passwordConfirm").value;
 
   validateInputs();
-  signup(name, cidNumber, contactNumber, email, password, passwordConfirm);
+  signup(name, cidNumber,cidNumberr, contactNumber, email,emaill, password, passwordConfirm);
 });
-
 
 const validateInputs = () => {
   const username1value = username1.value.trim();
@@ -118,6 +146,7 @@ const validateInputs = () => {
   const passwordvalue = password1.value.trim();
   const password2value = password2_1.value.trim();
 
+  console.log("allusers");
   if (username1value === "") {
     setError(username1, "username1 cannot be blank");
     // return false;

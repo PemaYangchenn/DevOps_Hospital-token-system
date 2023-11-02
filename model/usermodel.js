@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
+// const validator = require('validator')
 const bcrypt = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({
@@ -10,24 +10,12 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required:[true, 'Please provide me a email'],
-        unique: true,
-        // lowercase: true,
-        // validate: [validator.isEmail, 'Please provide validate email']
-    },
-    contactNumber: {
-        type:String,
-        required: [true, 'Please provide a contact number'],
-        // validate: {
-        //     validator: function(value){
-        //         return /^\d{8}$/.test(value)
-        //     },
-        //     message:'contact number should be numeric and exactly 8 digits'
-        // }
+        unique: [true,'the email already exists!!']
     },
     cidNumber: {
         type:String,
         required: [true, 'Please provide a cid number'],
-        unique: true,
+        unique: [true,'the cid number already exists']
         // validate: {
         //     validator: function(value){
         //         return /^\d{11}$/.test(value)
@@ -55,7 +43,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum:['user', 'admin', 'doctor'],
         default: 'user'
+    },
+    contactNumber:{
+        type : Number,
+        unique: false,
     }
+    
 })
 
 userSchema.pre('save', async function (next) {
