@@ -1,0 +1,17 @@
+{
+  "name": "devops_hospital-token-system",
+  "version": "1.0.0",
+  "description": "A system to register hospital tokens online",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chador",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
