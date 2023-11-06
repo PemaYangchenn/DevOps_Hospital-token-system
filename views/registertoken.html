@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/token.css">
+    <title>Token</title>
+</head>
+<body>
+  <div class="form-container">
+    
+      <div class="logo-container">
+        <label for="registration-type">Register for:</label>
+      </div>
+      <div class="form-group"></div>
+      <form action="" class="form">
+        <select id="registration-type" name="registration-type" onchange="showHideCIDInput(this)">
+          <option value="self">Yourself</option>
+          <option value="others">Others</option>
+        </select>
+      <br>
+  
+      <div id="cid-input" style="display: none;" class="form-group">
+          <label for="cid">CID No:</label>
+          <input type="text" id="cid" name="cid">
+          <br>
+      </div>
+      <div class="form-group">
+        <label for="department">Select Department:</label>
+        <select id="department" name="department">
+            <option value="eye">Eye</option>
+            <option value="ear">Ear</option>
+        </select>
+        <br>
+      </div>
+        <button class="form-submit-btn" type="submit">Register</button>
+    </form>
+    </div>
+  </div>
+</body>
+</html>
