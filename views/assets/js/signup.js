@@ -1,202 +1,175 @@
-const usernameEl = document.querySelector('#username');
-const emailEl = document.querySelector('#email');
-const cidE1 = document.querySelector('#cid')
-const contactNoE1 = document.querySelector('#contactNo')
-const passwordEl = document.querySelector('#password');
-const confirmPasswordEl = document.querySelector('#confirm-password');
-const form = document.querySelector('#signup');
+import { showAlert } from "./alert.js";
+// ======================= ========================================== ============================== ====================
+// new code implementation
+const username1 = document.getElementById("name");
+const cid1 = document.getElementById("cid");
+const contact1 = document.getElementById("contactNo");
+const email1 = document.getElementById("email");
+const password1 = document.getElementById("password");
+const password2_1 = document.getElementById("confirmPassword");
 
-// Utility functions for validation
-const isRequired = value => value.trim() !== '';
-const isBetween = (length, min, max) => length >= min && length <= max;
-const isLengthValid = (length, min, max) => length >= min && length <= max;
-const isUsernameValid = username => {
-    const re = /^[A-Za-z]+$/;
-    return re.test(username);
-};
-const isCidValid = cid => {
-    const re = /^[1-5][1-9][0-9]|[1-9][0-9]|0[0-9]|[1-1][0-9][0-9]|[2-2][0-0-4][0-9][0-9]|[3-5][0-0-9][0-9]$/;
-    return re.test(cid);
-};
-const isContactNumberValid = contactNumber => {
-    const re = /^(17|77)\d{6}$/;
-    return re.test(contactNumber);
-};
-const isEmailValid = email => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-};
-const isPasswordSecure = password => {
-    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
-    return re.test(password);
+const setError = (element, message) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector("small");
+
+  errorDisplay.innerText = message;
+  inputControl.classList.add("error");
+  inputControl.classList.remove("success");
 };
 
-// Utility functions for showing errors and success indicators
-const showError = (input, message) => {
-    const formField = input.parentElement;
-    formField.classList.remove('success');
-    formField.classList.add('error');
-    const error = formField.querySelector('small');
-    error.style.color = 'red'; // Set error message color to red
-    error.textContent = message;
+const setSuccess = (element) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector("small");
+  errorDisplay.innerText = "";
+  inputControl.classList.add("success");
+  inputControl.classList.remove("error");
 };
 
-
-const showSuccess = input => {
-    const formField = input.parentElement;
-    formField.classList.remove('error');
-    formField.classList.add('success');
-    const error = formField.querySelector('small');
-    error.style.color = ''; // Reset error message color
-    error.textContent = '';
+const username1validate = (username1) => {
+  const re = /^[A-Za-z]+(?: [A-Za-z]+)?$/;
+  return re.test(username1);
 };
 
+const iscid1Valid = (cid1) => {
+  const re = /^[1-5](0[1-9]|1[0-9]|20)(0[1-9]|1[0-7])\d{6}$/;
+   return re.test(cid1);
+};
 
-// Validation functions for form fields
-const checkUsername = () => {
-    const username = usernameEl.value.trim();
-    if (!isRequired(username)) {
-        showError(usernameEl, 'Username cannot be blank.');
-        return false;
-    } else if (!isBetween(username.length, 3, 25)) {
-        showError(usernameEl, 'Username must be between 3 and 25 characters.');
-        return false;
-    } else {
-        showSuccess(usernameEl);
-        return true;
+const contact1validate = (contact1) => {
+  const re = /^(17|77)\d{6}$/;
+  return re.test(contact1);
+};
+
+const isemail1Valid = (email1) => {
+  const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email1);
+};
+
+const isPasswordSecure = (password1) => {
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
+  return re.test(password1);
+};
+
+// ======================= ========================================== ============================== ====================
+
+export const signup = async (
+  name,
+  cidNumber,
+  contactNumber,
+  email,
+  password,
+  passwordConfirm
+) => {
+  try {
+    const res = await axios({
+      method: "POST",
+      url: "http://localhost:4001/api/v1/users/signup",
+      data: {
+        name,
+        cidNumber,
+        contactNumber,
+        email,
+        password,
+        passwordConfirm,
+      },
+    });
+    if (res.data.status === "success") {
+      showAlert("success", "Account created successfully!");
+      window.setTimeout(() => {
+        location.assign("/home");
+      }, 1500);
     }
+  } catch (err) {
+    let message =
+      typeof err.response !== "undefined"
+        ? err.response.data.message
+        : err.message;
+    showAlert("error", "Error: password are not same!", message);
+  }
 };
 
-const checkCID = () =>{
-    const cid = cidE1.value.trim();
-    const numberAsString = cid.toString(); // Convert number to string
-    const length = numberAsString.length; // Get the length of the string
-    if (!isRequired(cid)) {
-        showError(cidE1, 'CID Number cannot be blank.');
-        return false;
-    }
-    else if(!isLengthValid(length,13,13)){
-        showError(cidE1,'CID Number must be exactly 13 digits');
-        return false;
-    }
-    else if(isCidValid===false){
-        return false;
-    }else {
-        showSuccess(cidE1);
-        return true;
-    }
-};
-const checkContactNo = () =>{
-    const contactNo = contactNoE1.value.trim();
-    const numberAsString = contactNo.toString();
-    const length = numberAsString.length;
-    if (!isRequired(contactNo)) {
-        showError(contactNoE1, 'Contact Number cannot be blank.');
-        return false;
-    }
-    else if(!isLengthValid(length,8,8)){
-        showError(contactNoE1,'Contact Number must be exactly 8 digits');
-        return false;
-    }else{
-        showSuccess(contactNoE1);
-        return true;
-    }
-}
-const checkEmail = () => {
-    const email = emailEl.value.trim();
-    if (!isRequired(email)) {
-        showError(emailEl, 'Email cannot be blank.');
-        return false;
-    } else if (!isEmailValid(email)) {
-        showError(emailEl, 'Email is not valid.');
-        return false;
-    } else {
-        showSuccess(emailEl);
-        return true;
-    }
-};
-
-const checkPassword = () => {
-    const password = passwordEl.value.trim();
-    if (!isRequired(password)) {
-        showError(passwordEl, 'Password cannot be blank.');
-        return false;
-    } else if (!isPasswordSecure(password)) {
-        showError(passwordEl, 'Password must have at least 8 characters, including at least one lowercase character, one uppercase character, one number, and one special character.');
-        return false;
-    } else {
-        showSuccess(passwordEl);
-        return true;
-    }
-};
-const checkConfirmPassword = () => {
-    const confirmPassword = confirmPasswordEl.value.trim();
-    const password = passwordEl.value.trim();
-    if (!isRequired(confirmPassword)) {
-        showError(confirmPasswordEl, 'Please enter the password again.');
-        return false;
-    } else if (password !== confirmPassword) {
-        showError(confirmPasswordEl, 'The passwords do not match.');
-        return false;
-    } else {
-        showSuccess(confirmPasswordEl);
-        return true;
-    }
-};
-
-// Event listener for form submission
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const isUsernameValid = checkUsername();
-    const isCidNoValid = checkCID();
-    const isContactNumberValid = checkContactNo();
-    const isEmailValid = checkEmail();
-    const isPasswordValid = checkPassword();
-    const isConfirmPasswordValid = checkConfirmPassword();
-
-    const isFormValid = isUsernameValid && isCidNoValid && isContactNumberValid &&
-        isEmailValid &&
-        isPasswordValid &&
-        isConfirmPasswordValid;
-
-    if (isFormValid) {
-        // Perform form submission or other actions
-    }
+document.querySelector(".signupForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const cidNumber = document.getElementById("cid").value;
+  const contactNumber = document.getElementById("contactNo").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const passwordConfirm = document.getElementById("confirmPassword").value;
+  //   signup(name, cidNumber, contactNumber, email, password, passwordConfirm);
+  validateInputs();
+  signup(name, cidNumber, contactNumber, email, password, passwordConfirm);
 });
 
-// Debounce function for input event
-const debounce = (fn, delay = 500) => {
-    let timeoutId;
-    return (...args) => {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-        timeoutId = setTimeout(() => {
-            fn.apply(null, args);
-        }, delay);
-    };
-};
 
-// Event listener for instant feedback using debouncing
-form.addEventListener('input', debounce(function (e) {
-    switch (e.target.id) {
-        case 'username':
-            checkUsername();
-            break;
-        case 'cid':
-            checkCID();
-            break;
-        case 'contactNo':
-            checkContactNo();
-            break;
-        case 'email':
-            checkEmail();
-            break;
-        case 'password':
-            checkPassword();
-            break;
-        case 'confirm-password':
-            checkConfirmPassword();
-            break;
-    }
-}));
+const validateInputs = () => {
+  const username1value = username1.value.trim();
+  const cid1value = cid1.value.trim();
+  const contact1value = contact1.value.trim();
+  const email1value = email1.value.trim();
+  const passwordvalue = password1.value.trim();
+  const password2value = password2_1.value.trim();
+
+  if (username1value === "") {
+    setError(username1, "username1 cannot be blank");
+  } else if (!(username1value.length >= 3 && username1value.length <= 25)) {
+    setError(username1, "length of usename should be inbetween 3 and 25");
+  } else if (!username1validate(username1value)) {
+    setError(username1, "usename should be only alphabate");
+  } else {
+    setSuccess(username1);
+  }
+
+  if (cid1value === "") {
+    setError(cid1, "cid1 cannot be blank");
+  } else if (cid1value.length !== 11) {
+    setError(cid1, "length of cid1 number should be 11");
+  } else if (!iscid1Valid(cid1value)) {
+    setError(cid1, "cid1 number is not valid");
+  } else {
+    setSuccess(cid1);
+  }
+
+  if (contact1value === "") {
+    setError(contact1, "contact1 number cannot be blank");
+  }else if(contact1value.length !==8){
+    setError(contact1, "phone number should be of 8 digit")
+  } else if (!contact1validate(contact1value)) {
+    setError(
+      contact1,
+      "contact1 number should start with 17 or 77"
+    );
+  }else{
+    setSuccess(contact1)
+  }
+
+  if (email1value === "") {
+    setError(email1, "email1 cannot be blank");
+  } else if (!isemail1Valid(email1value)) {
+    setError(email1, "email1 is not in proper formate");
+  } else {
+    setSuccess(email1);
+  }
+
+  if (passwordvalue === "") {
+    setError(password1, "password cannot be blank");
+  } else if (passwordvalue.length <= 8) {
+    setError(password1, "it should be atleast 8 character");
+  } else if (!isPasswordSecure(passwordvalue)) {
+    setError(
+      password1,
+      "password should be minimum of 8 character,\nshould contain a capital letter and small letter, \natleast a number and a special character "
+    );
+  }
+  else{
+    setSuccess(password1)
+  }
+  if (password2value === "") {
+    setError(password2_1, "confirm password cannot be empty");
+  } else if (password2value !== passwordvalue) {
+    setError(password2_1, "confirm password and password should be same");
+  } else {
+    setSuccess(password2_1);
+  }
+};
