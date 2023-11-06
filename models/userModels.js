@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
-// const validator = require('validator')
+const validator = require('validator')
 const bcrypt = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({
     name:{
         type:String,
-        required:[true, 'Please tel us your name!']
+        required:[true, 'Please tell us your name!']
     },
     email: {
         type: String,
@@ -32,12 +32,12 @@ const userSchema = new mongoose.Schema({
     passwordConfirm: {
         type:String,
         required: [true, 'please confirm your password'],
-        // validate: {
-        //     validator: function (el) {
-        //         return el === this.password
-        //     },
-        //     message: 'password are not the same'
-        // }
+        validate: {
+            validator: function (el) {
+                return el === this.password
+            },
+            message: 'password are not the same'
+        }
     },
     role: {
         type: String,
