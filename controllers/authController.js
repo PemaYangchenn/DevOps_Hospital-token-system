@@ -131,25 +131,3 @@ exports.tokenc = async(req, res, next) => {
 }
 }
 
-// exports.updateMe = async (req, res, next) => {
-//     try {
-//         if (req.body.password || req.body.passwordConfirm) {
-//             return res.status(400).json({
-//                 status: 'fail',
-//                 error: 'This route is not for password updates. Please use /updateMyPassword',
-//             });
-//         }
-//         // Continue with the rest of your code if no password-related fields are provided
-//         // ...
-//         res.status(200).json({
-//             status: 'success',
-//             message: 'Update successful',
-//         });
-//         next();
-//     } catch (err) {
-//         res.status(500).json({
-//             status: 'error',
-//             error: err.message,
-//         });
-//     }
-// };

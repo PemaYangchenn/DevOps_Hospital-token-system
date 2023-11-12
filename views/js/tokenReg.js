@@ -29,7 +29,7 @@ const tokenregister = async(date, departmentR, username, cid, phoneno)=>{
             showAlert("success", `SUCCESS: token registered successfully!${departmentR}`)
 
             window.setTimeout(() => {
-                location.assign("/home2")
+                location.assign("/home3")
             }, 1500)
         }
     } catch (err){

@@ -41,3 +41,8 @@ exports.getDoctor1 = (req, res) => {
 exports.getProfile = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'myprofilepage.html'));
 };
+
+// Home page3
+exports.getHome3 = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'Home3.html'));
+};
