@@ -1,0 +1,118 @@
+document.getElementById("output_table")
+fetch('http://localhost:4001/api/v1/tokens').then((jsonData)=>{
+    console.log(jsonData)//data in json formate
+    return jsonData.json()//conerted to object
+}).then((objectData)=>{
+    console.log("the length of data is: ",objectData.data.length)
+    console.log(objectData.data);
+    showAll(objectData.data)
+})
+
+
+const showAll = (data,err) =>{
+    lengthh = data.length
+
+    doc = document.querySelector("#output_table");
+    for (let i =0; i<lengthh;i++){
+        feed = data[i]
+        console.log(feed);
+        const phoneno = feed.phoneno;
+        const date = feed.date;
+        const username = feed.username;
+        const department = feed.departmentR;
+        if(department === "Anesthesiology"){
+          console.log("Huiii!!!");
+            createTable(username,phoneno,department, date)
+        }
+}
+
+}
+// Initialize the checkbox state from localStorage when the page loads
+window.addEventListener('load', function() {
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(function(checkbox) {
+    var row = checkbox.closest('tr');
+    var rowId = row.getAttribute('data-row-id');
+    var isChecked = localStorage.getItem('checkbox_' + rowId);
+    if (isChecked) {
+      checkbox.checked = true;
+      row.style.background = 'green';
+    }
+  });
+});
+
+function createTable(username, phoneno, department, date) {
+  var outputTable = document.getElementById('output_table');
+
+  // Check if the table exists, if not create it
+  if (!outputTable.querySelector('table')) {
+    var table = document.createElement('table');
+    outputTable.appendChild(table);
+
+    // Create a container div to center the table and add padding
+    var tableContainer = document.createElement('div');
+    tableContainer.style.textAlign = 'center'; // Center align the table
+    tableContainer.style.paddingLeft = '20px'; // Add left padding
+    tableContainer.appendChild(table);
+    outputTable.appendChild(tableContainer);
+
+    table.style.border = '1px solid white';
+    table.style.color = 'white';
+
+    // Create table headers
+    var thead = document.createElement('thead');
+    var headerRow = thead.insertRow();
+    headerRow.style.background = 'white'; // Header background color
+    headerRow.style.color = 'black'; // Header text color
+
+    headerRow.insertCell().textContent = 'Sl. No';
+    headerRow.insertCell().textContent = 'Username';
+    headerRow.insertCell().textContent = 'Phone No';
+    headerRow.insertCell().textContent = 'Department';
+    headerRow.insertCell().textContent = 'Date';
+    headerRow.insertCell().textContent = 'Do/Not';
+
+    table.appendChild(thead);
+  }
+
+  // Get the table body
+  var tbody = outputTable.querySelector('table tbody');
+  if (!tbody) {
+    tbody = document.createElement('tbody');
+    outputTable.querySelector('table').appendChild(tbody);
+  }
+
+  // Apply CSS styles to table data rows
+  var newRow = tbody.insertRow();
+  newRow.style.background = 'white'; // Data row background color
+  newRow.style.color = 'black'; // Data row text color
+
+
+  // Apply CSS styles to table data cells (td) to change the border color to black
+  newRow.insertCell().textContent = tbody.rows.length;
+  newRow.insertCell().textContent = username;
+  newRow.insertCell().textContent = phoneno;
+  newRow.insertCell().textContent = department;
+  newRow.insertCell().textContent = date;
+
+  // Create a new cell for the checkbox
+  var checkboxCell = newRow.insertCell();
+  var checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.id = `checkbox_${tbody.rows.length} `
+  checkboxCell.appendChild(checkbox);
+
+ checkbox.checked = localStorage.getItem(`checkbox_${tbody.rows.length}`) === "true"
+  checkbox.addEventListener("change", function () {
+    localStorage.setItem(this.id, this.checked);
+  });
+
+  // checkbox.checked = localStorage.getItem("checkboxState") === "true";
+
+  // Change the border color of the data cells to black
+  var cells = newRow.getElementsByTagName('td');
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].style.border = '1px solid black';
+  }
+}
+

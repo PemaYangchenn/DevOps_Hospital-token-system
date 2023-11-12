@@ -1580,3 +1580,48 @@ button:hover {
   background-color: #ffd584;
   text-decoration: none;
 }
+
+.token-form{
+  background-color: white;
+  /* margin-top: 4%; */
+  margin-left: 40%;
+  margin-right: 40%;
+  height: 150px;
+  padding-top: 3%;
+  /* padding-left: 80%; */
+  /* padding-right: 25%; */
+
+}
+
+.token-button{
+  margin-top: 3%;
+}
+
+/* Base styling for the alert */
+.alert {
+    position: fixed;
+    top: 10%; /* Position the alert box 10% from the top */
+    left: 50%; /* Horizontal centering */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    z-index: 1000; /* Make sure the alert is on top of other elements */
+    color: #fff; /* White text color for readability */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a little depth */
+    max-width: 90%; /* Ensure it doesn't overflow viewport width */
+    text-align: center; /* Center the alert text */
+    animation: slideDown 0.4s ease-out; /* Slide down effect */
+}
+
+/* Alert for error messages */
+.alert--error {
+    background-color: #e74c3c; /* Red background for error */
+    color: white;
+}
+
+/* Alert for success messages */
+.alert--success {
+    background-color: #2ecc71; /* Green background for success */
+    color: white;
+}
