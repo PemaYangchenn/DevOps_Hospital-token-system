@@ -96,3 +96,13 @@
   text-decoration: underline;
 }
 
+#t-name{
+  width: 400px;
+}
+#t-cid {
+  width: 390px;
+}
+#t-phone{
+  width: 370px;
+}
+

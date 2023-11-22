@@ -29,6 +29,8 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/alert.css" rel="stylesheet">
+  <link href="assets/css/token.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Gp
@@ -97,44 +99,58 @@
    <div class="modal-dialog">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="tokenModalLabel" style="font-weight: bold; color: #222; font-family: Poppins;">
-           Token</h5>
+         <h4 class="modal-title" id="tokenModalLabel" style="font-weight: bold; color: #222; font-family: Poppins;display:flex; justify-content:center; align-items: center;">
+           Register Token</h4>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body">
-         <form>
+         <form class = "token" id = "register-token" action="/register-token" method="post">
            <div class="mb-3">
-             <label for="patient">Register for</label>
+             <!-- <label for="patient">Register for</label>
              <select id="patient" name="patient" onchange="toggleFormElements()">
                <option value="yourself">Yourself</option>
                <option value="others">Others</option>
-             </select>
+             </select> -->
            </div>
-           <div class="mb-3" id="form-elements" style="display: none;">
-             <label for="name" class="mb-3">Name:</label>
-             <input type="text" class="mb-3" id="name" name="name"><br>
+           <!-- <div class="mb-3" id="form-elements" style="display: none;"> -->
+             <label for="name" class="mb-3" >Name:</label>
+             <input type="text" class="mb-3" id="t-name" name="name"><br>
      
-             <label for="cid" class="mb-3" >CID:</label>
-             <input type="text" class="mb-3" id="cid" name="cid"><br>
+             <label for="cid" class="mb-3" >CID No:</label>
+             <input type="text" class="mb-3" id="t-cid" name="cid"><br>
      
-             <label for="age" class="mb-3" >Age:</label>
-             <input type="text" class="mb-3" id="age" name="age"><br>
+             <!-- <label for="age" class="mb-3" >Age:</label>
+             <input type="text" class="mb-3" id="t-age" name="age"><br> -->
      
-             <label for="phone" class="mb-3" >Phone Number:</label>
-             <input type="text" class="mb-3" id="phone" name="phone"><br>
-         </div>
+             <label for="phone" class="mb-3" >Phone No:</label>
+             <input type="text" class="style mb-3" id="t-phone" name="phone"><br>
+         <!-- </div> -->
            <div class="mb-3">
              <label for="date" class="form-label">Date</label>
-             <input type="date" class="form-control" id="date" placeholder="Select a date" required>
+             <input type="date" class="form-control" id="t-date" name = "date" placeholder="Select a date" required>
            </div>
            <div class="mb-3">
              <label for="sickness" class="form-label">Department</label>
-             <select class="form-select" id="sickness" required>
+             <select class="form-select" id="t-department" name ="department" required>
                <option value="" disabled selected>Select a Department</option>
-               <option value="sickness1">Ophthalmology (Eye Unit)</option>
-               <option value="sickness2">Dental</option>
-               <option value="sickness3">Orthopedics</option>
-               <option value="sickness3">ENT (Ear, Nose, and Throat)</option>
+               <!-- <option value="Anesthesiology">Anesthesiology</option> -->
+               <option value="Dentistry">Dentistry</option>
+               <option value="Dermatology">Dermatology</option>
+               <option value="ENT">ENT</option>
+               <!-- <option value="Forensic Medicine">Forensic Medicine</option>
+               <option value="Gynae/Obs">Gynae/Obs</option>
+               <option value="Medical">Medical</option> -->
+               <option value="Ophthalmology">Ophthalmology</option>
+               <!-- <option value="Orthopaedic">Orthopaedic</option>
+               <option value="Paediatrics">Paediatrics</option>
+               <option value="Psychiatry">Psychiatry</option>
+               <option value="Surgical">Surgical</option>
+               <option value="Pathology">Pathology</option>
+               <option value="CT unit">CT unit</option>
+               <option value="MRI">MRI</option>
+               <option value="Ultrasonography">Ultrasonography</option>
+               <option value="Ultrasound unit">Ultrasound unit</option>
+               <option value="X-Ray">X-Ray</option> -->
                <!-- Add more sickness options as needed -->
              </select>
            </div>
@@ -191,7 +207,7 @@
                 <div class="mb-3">
                   <label for="password" class="form-label"
                     style="font-size: 13px; line-height: 2.8px; color: #222; font-family: Poppins;">Password</label>
-                  <input type="password" class="form-control" id="password" name="password" required>
+                  <input type="password" class="form-control" id="register-password" name="password" required>
                 </div>
                 <div class="mb-3">
                   <label for="confirmPassword" class="form-label"
@@ -213,8 +229,6 @@
       </div>
     </div>
   </div>
-
-
 
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -242,7 +256,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password" name="password" required>
+                  <input type="password" class="form-control" id="login-password" name="password" required>
                 </div>
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
@@ -894,10 +908,10 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" id="name-1" placeholder="Your Name" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" id="email-1" placeholder="Your Email" required>
                 </div>
               </div>
               <div class="form-group mt-3">
@@ -994,20 +1008,24 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type=  "module" src = "assets/js/token.js"></script>
+  <script type=  "module" src = "assets/js/alert.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </body>
 
 <script>
-  function toggleFormElements() {
-var select = document.getElementById("patient");
-var formElements = document.getElementById("form-elements");
 
-if (select.value === "others") {
-    formElements.style.display = "block"; // Show the form elements
-} else {
-    formElements.style.display = "none";  // Hide the form elements
-}
-}
+//   function toggleFormElements() {
+// var select = document.getElementById("patient");
+// var formElements = document.getElementById("form-elements");
+
+// if (select.value === "others") {
+//     formElements.style.display = "block"; // Show the form elements
+// } else {
+//     formElements.style.display = "none";  // Hide the form elements
+// }
+// }
 </script>
 
 </html>

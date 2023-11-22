@@ -2,6 +2,7 @@ const User = require('./../models/userModels')
 const jwt = require('jsonwebtoken')
 const AppError = require('./../utils/appError')
 
+const Token = require('../models/tokenModel');
 const signToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN,
@@ -81,3 +82,31 @@ exports.logout = (req, res) => {
     })
     res.status(200).json({status : 'success'})
 }
+
+exports.tokenc = async(req, res, next) => {
+    try{
+        const newToken = await Token.create(req.body)
+        createSendToken(newToken, 201, res)
+     }
+    catch(err){
+    res.status(500).json({error: err.message});
+}
+
+exports.registerToken = async (req, res) => {
+    try {
+        const { username, cidNumber, phone, date, department } = req.body;
+        const newToken = new Token({
+            username,
+            cidNumber,
+            phone,
+            date,
+            department,
+        });
+        await newToken.save();
+        res.status(201).json({ message: 'Token registered successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}};
+
