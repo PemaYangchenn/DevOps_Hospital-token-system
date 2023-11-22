@@ -32,9 +32,14 @@ exports.getTokenR = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'tokenReg.html'));
 };
 
-// doctor page1
+// doctor General page1
 exports.getDoctor1 = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'doctorp1.html'));
+};
+
+// doctor Main page1
+exports.getD1 = (req, res) => {     
+    res.sendFile(path.join(__dirname, '../', 'views', 'Departments', 'doctorp1.html'));
 };
 
 // PROFILE PAGE
@@ -45,4 +50,14 @@ exports.getProfile = (req, res) => {
 // Home page3
 exports.getHome3 = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'Home3.html'));
+};
+
+// Realtime Update
+exports.getRealtimeUpdate = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'realtimeUpdates', 'realtimeUpdate1.html'));
+};
+
+// dashboard1
+exports.getDashboard1 = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'chamber.html' ));
 };

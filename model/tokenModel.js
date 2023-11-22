@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const tokenSchema = new mongoose.Schema({
     date: {
         type: String,
-        required:[true, 'the data is required']
+        required:[true, 'the date is required']
     },
     departmentR: {
         type:String,
@@ -17,7 +17,12 @@ const tokenSchema = new mongoose.Schema({
     },
     phoneno: {
         type: Number
+    },
+    checkUpdate: {
+        type: String,
+        default:'No'
     }
+
 
 })
 

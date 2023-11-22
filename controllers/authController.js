@@ -1,5 +1,8 @@
 const User = require('./../model/usermodel')
 const Token = require('./../model/tokenModel')
+const DoctorTUpdate = require('./../model/doctorTModel')
+
+const CustomizeToken = require('./../model/customizeTModel')
 const jwt = require('jsonwebtoken')
 const AppError = require('./../utils/appError')
 const { promisify, isNullOrUndefined} = require('util')
@@ -131,3 +134,40 @@ exports.tokenc = async(req, res, next) => {
 }
 }
 
+// =====================================================================
+exports.DoctortUpdate = async(req, res, next) => {
+    try{
+        const new_updateToken = await DoctorTUpdate.create(req.body)
+        createSendToken(new_updateToken, 201, res)
+    } catch(err){
+        res.status(500).json({error: err.message})
+    }
+}
+
+// =====================================================================
+exports.tokenCustomize = async(req,res, next) => {
+    try{
+        const newCToken = await CustomizeToken.create(req.body)
+        createSendToken(newCToken, 201, res)
+    }
+    catch(err){
+        res.status(500).json({error: err.message})
+    }
+}
+
+// ======================= updating token registration date & no of token ========
+// exports.updateToken = async (req, res, next) => {
+//     try{
+//         const tokendetail = await CustomizeToken.findById(req.tokendetail.id).select('+noOfToken')
+//         if (! (await tokendetail.correctNoOfToken(req.body.currentNoOfToken, tokendetail.noOfToken))){
+//             return next(new AppError('Your current number of user is wrong', 401))
+//         }
+//         tokendetail.noOfToken = req.body.noOfToken
+//         tokendetail.noOfTokenConfirm = req.body.noOfTokenConfirm
+
+//         createSendToken(tokendetail, 200, res)
+//     }
+//     catch(err){
+//         res.status(500).json({error:err.message})
+//     }
+// }
