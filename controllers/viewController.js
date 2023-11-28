@@ -61,3 +61,8 @@ exports.getRealtimeUpdate = (req, res) => {
 exports.getDashboard1 = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'chamber.html' ));
 };
+
+// dashboard2
+exports.getDashboardedit = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'editdashDB.html' ));
+};

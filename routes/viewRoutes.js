@@ -20,6 +20,7 @@ router.get('/me', authController.protect, viewsController.getProfile)
 router.get('/realtimeupdate1', viewsController.getRealtimeUpdate)
 
 router.get('/dashboard1', viewsController.getDashboard1)
+router.get('/editdashboard', viewsController.getDashboardedit)
 // router.get('/me', viewsController.getProfile)
 
 module.exports = router

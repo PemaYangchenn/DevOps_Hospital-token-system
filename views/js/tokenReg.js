@@ -25,7 +25,7 @@ const tokenAvilable = (data, sicknessvalue, datevalue) => {
 };
 
 
-const showToken = (data, sicknessvalue,datevalue) => {
+const showToken = (data, sicknessvalue,datevalue) => { 
     var count = 0;
     var length = data.length;
     console.log("This is of token: ", data[0]);
@@ -121,13 +121,17 @@ document.getElementById("token-form").addEventListener("submit", async (e) => {
     const noOfTokenUsed = showToken(tokendata, sicknessvalue,datevalue);
 
     // Check token availability and show appropriate message
+    let message;
     if(avilabletoken === 0){
-        showAlert("no token")
+        message = "no token"
+        showAlert('error', 'ERROR: No TOKEN avilable for this day, please try on another day ', message)
         console.log("NO token");
     }else if(noOfTokenUsed < avilabletoken){
         console.log("Registration going");
         tokenregister(datevalue, sicknessvalue, usernamevalue, cidvalue, phoneno);
     }else{
+        message = "TOKEN FULL"
+        showAlert('error', 'ERROR: TOKEN FULL', message)
         console.log("Token full");
     }
 });
