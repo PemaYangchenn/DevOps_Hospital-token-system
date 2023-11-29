@@ -11,7 +11,6 @@ var el = document.querySelector('.admin-nav')
 //     '<h5 class="admin-nav__heading">User</h5><ul class="side-nav"><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage Medical Reminder</a></li><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage E-Services</a></li></ul>';
 // }
 
-
 var el1 = document.querySelector('.form.form-user-data');
 el1.innerHTML =
   `<div class="form__group">

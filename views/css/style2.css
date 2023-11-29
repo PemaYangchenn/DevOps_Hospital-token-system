@@ -211,7 +211,7 @@ header{
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: 50px;
+  /* font-size: 50px; */
   font-weight: 600;
   color: #fff;
   white-space: nowrap;
