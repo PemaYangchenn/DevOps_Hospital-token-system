@@ -4,13 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Edit Token</title>
+    <title>user Acctivation and Deactivation</title>
 
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
 
     <!-- Your custom CSS styles -->
     <link rel="stylesheet" type="text/css" href="../Dashboard/css/chamber.css">
+    <link rel="stylesheet" href="../Dashboard/css/dashbaord.css" />
+    <link rel="stylesheet" href="../Dashboard/css/alert.css">
+
 </head>
 
 <body>
@@ -20,7 +23,7 @@
         style="position: relative; display: flex; justify-content: space-between; align-items: center;">
         <!-- Patient in Top Left Corner -->
         <div style="position: absolute; top: 0; left: 0;">
-            <p style="margin-left: 300px; padding-top: 15px; font-size: 20px;">Edit token</p>
+            <p style="margin-left: 300px; padding-top: 15px; font-size: 20px;">Admin Feedback</p>
         </div>
 
         <!-- Logout Button -->
@@ -75,67 +78,52 @@
                         View Feedback
                     </a>
                 </li>
-     
+      
                 <br>
             </ul>
+
         </div>
     </nav>
 
     <!-- Content -->
     <div id="content">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="content-column text-white">
 
-                    <div class="half-part">
-                        <div class="text-wrapper-8">user:</div>
-                        <div class="text-wrapper-7" id="noOF_User"></div>
+            <div class="details">
+                <div class="admins">
+                    <div class="cardHeader">
+                        <h2>Users</h2>
                     </div>
-                    <div class="half-part">
-                        <img width="43" height="43"
-                            src="https://img.icons8.com/external-fauzidea-detailed-outline-fauzidea/64/000000/external-patients-pandemic-fauzidea-detailed-outline-fauzidea.png"
-                            alt="external-patients-pandemic-fauzidea-detailed-outline-fauzidea"
-                            style="filter: brightness(0) invert(1);">
-                    </div>
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <td>User ID</td>
+                                <td>Name</td>
+                                <td>Email</td>
+                                <td>cid</td>
+                                <td>Status</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody id="myTableBody">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="content-column text-white">
-
-                    <div class="half-part">
-                        <div class="text-wrapper-8">Admins:</div>
-                        <div class="text-wrapper-7"></div>
-                    </div>
-                    <div class="half-part">
-                        <img width="50" height="48" src="https://img.icons8.com/ios/50/000000/two-beds.png"
-                            alt="two-beds" style="filter: brightness(0) invert(1);">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="content-column text-white">
-
-                    <div class="half-part">
-                        <div class="text-wrapper-8">Deparments:</div>
-                        <div class="text-wrapper-7">15</div>
-                    </div>
-                    <div class="half-part">
-                        <img width="40" height="40" src="https://img.icons8.com/pastel-glyph/64/000000/hospital--v3.png"
-                            alt="hospital--v3" style="filter: brightness(0) invert(1);">
-                    </div>
-                </div>
-            </div>
-        </div>
         <br><br><br>
         <div class="col-md-9">
             <div class="table_edit" , id="table_edit"></div>
         </div>
 
         <!-- Include Bootstrap JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
         <script type = "module" src="../js/logout.js"></script>
-        <script type="module" src="../Dashboard/js/editToken.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script type="module" src="../Dashboard/js/adminusers.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 

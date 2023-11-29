@@ -5,6 +5,7 @@ const userRouter = require("./routes/userRoutes");
 const viewRouter = require("./routes/viewRoutes");
 const tokenRouter = require("./routes/tokenRoutes")
 const doctorTRouter = require("./routes/doctorTRoutes")
+const contactRouter = require('./routes/contactRoutes')
 const customizeTokenRouter = require('./routes/CutomizeTRoutes')
 const cookieParser = require('cookie-parser')
 
@@ -15,6 +16,8 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tokens", tokenRouter);
 app.use("/api/v1/doctortoken", doctorTRouter);
 app.use("/api/v1/dashboard1", customizeTokenRouter)
+
+app.use("/api/v1/contact", contactRouter)
 
 // app.use(express.static(path.join(__dirname, "views")));
 app.use(express.static(path.join(__dirname, "views")));

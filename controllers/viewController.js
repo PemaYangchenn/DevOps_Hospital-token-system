@@ -24,7 +24,7 @@ exports.getHome = (req, res) => {
 
 // Home page
 exports.getHome2 = (req, res) => {
-    res.sendFile(path.join(__dirname, '../', 'views', 'home2.html'));
+    res.sendFile(path.join(__dirname, '../', 'views', 'Home2.html'));
 };
 
 // Regestering Token
@@ -59,10 +59,20 @@ exports.getRealtimeUpdate = (req, res) => {
 
 // dashboard1
 exports.getDashboard1 = (req, res) => {
-    res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'chamber.html' ));
+    res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'customize.html' ));
 };
 
 // dashboard2
 exports.getDashboardedit = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'editdashDB.html' ));
+};
+
+// dashboard2
+exports.getDashboardFeedback = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'feedbackdb.html' ));
+};
+
+// dashboard3
+exports.getDashboardactivate = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'activation.html' ));
 };

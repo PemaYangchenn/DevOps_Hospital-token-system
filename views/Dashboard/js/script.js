@@ -24,9 +24,9 @@
                 });
                 if(res.data.status === 'success'){
                     showAlert('success',`SUCCESS: token customized successfully in ${department}`)
-                    // window.setTimeout(() => {
-                    //     location.assign("/dashboard1")
-                    // }, 1500)
+                    window.setTimeout(() => {
+                        location.assign("/dashboard1")
+                    }, 1500)
                 }
             }catch (error){
                 console.log(error);
