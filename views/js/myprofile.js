@@ -3,38 +3,24 @@ import { showAlert } from "./alert.js"
 var obj = JSON.parse(document.cookie.substring(6))
 
 var el = document.querySelector('.admin-nav')
-if (obj.role == 'admin') {
-  el.innerHTML =
-    '<h5 class="admin-nav__heading">Admin</h5><ul class="side-nav"><li><a href="#"><img src="/assets/img/icon.png" alt="icon"> Manage users</a></li><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage Doctors</a></li><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage E-Services</a></li></ul>';
-} else {
-  el.innerHTML =
-    '<h5 class="admin-nav__heading">User</h5><ul class="side-nav"><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage Medical Reminder</a></li><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage E-Services</a></li></ul>';
-}
+// if (obj.role == 'admin') {
+//   el.innerHTML =
+//     '<h5 class="admin-nav__heading">Admin</h5><ul class="side-nav"><li><a href="#"><img src="/assets/img/icon.png" alt="icon"> Manage users</a></li><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage Doctors</a></li><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage E-Services</a></li></ul>';
+// } else {
+//   el.innerHTML =
+//     '<h5 class="admin-nav__heading">User</h5><ul class="side-nav"><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage Medical Reminder</a></li><li><a href="#"><img src="/assets/img/icons.png" alt="icon"> Manage E-Services</a></li></ul>';
+// }
 
 
 var el1 = document.querySelector('.form.form-user-data');
 el1.innerHTML =
   `<div class="form__group">
     <label class="form__label" for="name">Name</label>
-    <input class="form__input" id="name" type="text" value="` +
-  obj.name.toUpperCase() +
-  `" required="required" name="name"/>
+    <input class="form__input" id="name" type="text" value="${obj.name.toUpperCase()}" required="required" name="name"/>
   </div>
   <div class="form__group ma-bt-md">
     <label class="form__label" for="email">Email address</label>
-    <input class="form__input" id="email" type="email" value="` +
-  obj.email +
-  `" required="required" name="email"/>
-  </div>
-  <div class="form__group form__photo-upload">
-    <img class="form__user-photo" src="./assets/img/users"` +
-  obj.photo +
-  `" alt="User photo"/>
-    <input class="form__upload" type="file" accept="image/*" id="photo" name="photo"/>
-    <label for="photo">Choose new photo</label>
-  </div>
-  <div class="form__group right">
-    <button class="btn btn--small btn--green">Save settings</button>
+    <input class="form__input" id="email" type="email" value="${obj.email}" required="required" name="email"/>
   </div>`;
 
 
@@ -53,8 +39,9 @@ el2.innerHTML = `
     <input class="form__input" id="password-confirm" type="password" placeholder="••••••••" required="required" minlength="8" />
   </div>
   <div class="form__group right">
-    <button class="btn btn--small btn--green btn--save-password">Save password</button>
-  </div>
+  <button class="btn btn--small btn--green btn--save-password" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4CAF50'">Save password</button>
+</div>
+
 `;
 
 // type is either 'password' or data

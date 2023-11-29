@@ -95,12 +95,12 @@
   }
   
   .chamber-row {
-    background-color: #1B5D74;
+    background-color: white;
     color: #fff; /* Set text color to white for better readability */
     padding: 60px; /* Adjusted padding for better spacing */
     margin-bottom: 10px;
     border-radius: 10px;
-    width: 90%;
+    width: 800px;
     margin-left: 60px;
     padding-left: 100px;
   }

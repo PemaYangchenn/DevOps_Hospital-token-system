@@ -77,7 +77,7 @@ const parseSelector = selector => {
   return selector;
 };
 
-// Shout-out Angus Croll (https://goo.gl/pxwQGp)
+// Shout-out Angus Croll (https://goo.gl/pxwQ)
 const toType = object => {
   if (object === null || object === undefined) {
     return `${object}`;

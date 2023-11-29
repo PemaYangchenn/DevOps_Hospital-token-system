@@ -24,7 +24,7 @@ exports.getHome = (req, res) => {
 
 // Home page
 exports.getHome2 = (req, res) => {
-    res.sendFile(path.join(__dirname, '../', 'views', 'Home2.html'));
+    res.sendFile(path.join(__dirname, '../', 'views', 'home2.html'));
 };
 
 // Regestering Token

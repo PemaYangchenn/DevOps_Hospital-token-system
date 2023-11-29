@@ -1,9 +1,9 @@
 /**
-* Template Name: Gp
+* Template Name: 
 * Updated: Aug 30 2023 with Bootstrap v5.3.1
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Template URL: https://.com/gp-free-multipurpose-html-bootstrap-template/
+* Author: .com
+* License: https://.com/license/
 */
 
 /*--------------------------------------------------------------
@@ -211,7 +211,7 @@ header{
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: 15px;
+  font-size: 50px;
   font-weight: 600;
   color: #fff;
   white-space: nowrap;
@@ -716,7 +716,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") fixed center center;
+  /* background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)); */
   background-size: cover;
   padding: 60px 0;
 }
@@ -1634,7 +1634,7 @@ button:hover {
 
 .user-view {
   background-color: #fff;
-  max-width: 120rem;
+  max-width: 50rem;
   margin: 0 auto;
   min-height: 100vh;
   border-radius: 3px;
@@ -1654,8 +1654,8 @@ button:hover {
     linear,
     left top,
     right bottom,
-    from(#7dd56f),
-    to(#28b487)
+    from(#494e49),
+    to(#4a4d4c)
   );
   background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
   padding: 4rem 0;
@@ -1666,12 +1666,14 @@ button:hover {
   -ms-flex: 1;
   flex: 1;
   padding: 7rem 0;
+  border-radius: 10px;
 }
 
 .user-view__form-container {
   max-width: 68rem;
   margin: 0 auto;
   padding: 0 8rem;
+  border-radius: 50px;
 }
 
 
@@ -1745,7 +1747,8 @@ button:hover {
 }
 
 .line {
-  margin: 6rem 0;
+  margin: 5rem 0;
+
   width: 100%;
   height: 0.4px;
   background-color: #e0e0e0;
@@ -1792,7 +1795,8 @@ button:hover {
 
 .form__label {
   display: block;
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
+  font-size: 15px;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
@@ -1801,7 +1805,7 @@ button:hover {
 .form__input {
   display: block;
   font-family: inherit;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   color: inherit;
   padding: 1.25rem 1.75rem;
   border: none;
@@ -1885,5 +1889,6 @@ button:hover {
 }
 
 .form__group:not(:last-child) {
-  margin-bottom: 2.5rem;
+  /* margin-bottom: 2.5rem; */
+  margin-bottom: 10px;
 }

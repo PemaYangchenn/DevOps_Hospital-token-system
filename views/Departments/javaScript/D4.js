@@ -52,35 +52,43 @@ function createTable(id, username, phoneno, department, date, checkUpdate) {
     var outputTable = document.getElementById('output_table_4');
 
     // Check if the table exists, if not create it
-    if (!outputTable.querySelector('table')) {
-        var table = document.createElement('table');
-        outputTable.appendChild(table);
+   // Check if the table exists, if not create it
+// Check if the table exists, if not create it
+if (!outputTable.querySelector('table')) {
+    var table = document.createElement('table');
+    outputTable.appendChild(table);
 
-        // Create a container div to center the table and add padding
-        var tableContainer = document.createElement('div');
-        tableContainer.style.textAlign = 'center'; // Center align the table
-        tableContainer.style.paddingLeft = '32%'; // Add left padding
-        tableContainer.appendChild(table);
-        outputTable.appendChild(tableContainer);
+    // Create a container div to center the table and add padding
+    var tableContainer = document.createElement('div');
+    tableContainer.style.textAlign = 'center'; // Center align the table
+    tableContainer.style.padding = '20px'; // Add padding
+    tableContainer.style.borderRadius = '10px'; // Add border radius
+    tableContainer.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)'; // Add box shadow
+    tableContainer.appendChild(table);
+    outputTable.appendChild(tableContainer);
 
-        table.style.border = '1px solid white';
-        table.style.color = 'white';
+    table.style.width = '100%';
+    table.style.borderCollapse = 'collapse';
+    table.style.color = 'white';
+    table.style.border = '1px solid black'; // Add black border
 
-        // Create table headers
-        var thead = document.createElement('thead');
-        var headerRow = thead.insertRow();
-        headerRow.style.background = 'white'; // Header background color
-        headerRow.style.color = 'black'; // Header text color
+    // Create table headers
+    var thead = document.createElement('thead');
+    var headerRow = thead.insertRow();
+    headerRow.style.background = 'white'; // Header background color
+    headerRow.style.color = 'black'; // Header text color
+    headerRow.style.fontWeight = 'bold'; // Header font weight
+    headerRow.style.padding = '10px'; // Header padding
 
-        headerRow.insertCell().textContent = 'Sl. No';
-        headerRow.insertCell().textContent = 'Username';
-        headerRow.insertCell().textContent = 'Phone No';
-        headerRow.insertCell().textContent = 'Department';
-        headerRow.insertCell().textContent = 'Date';
-        headerRow.insertCell().textContent = 'Do/Not';
+    headerRow.insertCell().textContent = 'Token No';
+    headerRow.insertCell().textContent = 'Username';
+    headerRow.insertCell().textContent = 'Phone No';
+    headerRow.insertCell().textContent = 'Department';
+    headerRow.insertCell().textContent = 'Date';
+    headerRow.insertCell().textContent = 'Status';
 
-        table.appendChild(thead);
-    }
+    table.appendChild(thead);
+}
 
     // Get the table body
     var tbody = outputTable.querySelector('table tbody');
