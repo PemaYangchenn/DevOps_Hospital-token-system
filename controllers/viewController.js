@@ -66,3 +66,13 @@ exports.getDashboard1 = (req, res) => {
 exports.getDashboardedit = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'editdashDB.html' ));
 };
+
+// dashboard2
+exports.getDashboardFeedback = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'feedbackdb.html' ));
+};
+
+// dashboard3
+exports.getDashboardactivate = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'Dashboard', 'activation.html' ));
+};

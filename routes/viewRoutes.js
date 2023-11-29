@@ -21,6 +21,8 @@ router.get('/realtimeupdate1', viewsController.getRealtimeUpdate)
 
 router.get('/dashboard1', viewsController.getDashboard1)
 router.get('/editdashboard', viewsController.getDashboardedit)
+router.get('/dbfeedback', viewsController.getDashboardFeedback)
+router.get('/dbactive', viewsController.getDashboardactivate)
 // router.get('/me', viewsController.getProfile)
 
 module.exports = router

@@ -1,9 +1,9 @@
 /**
-* Template Name: Gp
+* Template Name: 
 * Updated: Aug 30 2023 with Bootstrap v5.3.1
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Template URL: https://.com/gp-free-multipurpose-html-bootstrap-template/
+* Author: .com
+* License: https://.com/license/
 */
 
 /*--------------------------------------------------------------
@@ -206,7 +206,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: 15px;
+  font-size: 50px;
   font-weight: 600;
   color: #fff;
   white-space: nowrap;
@@ -710,7 +710,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") fixed center center;
+  background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5));
   background-size: cover;
   padding: 60px 0;
 }

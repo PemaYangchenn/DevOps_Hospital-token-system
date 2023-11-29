@@ -44,6 +44,11 @@ const userSchema = new mongoose.Schema({
         enum:['user', 'admin', 'doctor'],
         default: 'user'
     },
+    active:{
+        type:Boolean,
+        default:true,
+        select:false,
+    },
     contactNumber:{
         type : Number,
         unique: false,
