@@ -1,25 +1,58 @@
-Project Aim:
+# DevOps Hospital Token System
 
-Project Scope:
+A hospital queue management system developed as part of a DevOps course project. This system helps streamline the token generation and patient queue handling process across different hospital departments using modern DevOps practices.
 
-Project Goal:
+---
 
-Project Objectives:
+## 📌 Project Description
 
-objective of sprint2
-1.making the error of backend get displayed in frontend
-2.creating the userprofile
-3.making updating the password()-forgot password
-4.making user can register for the token-need to store in database
+The **Hospital Token System** is a web-based application that allows patients to generate tokens for different hospital departments and get real-time updates on their queue position. This system aims to reduce waiting time and improve hospital service flow, while also integrating essential DevOps principles like automation, CI/CD, and containerization.
 
-objective of sprint3
--assigning the token number based on the time.
--accepting the registration only on the provided time (start time & end time)
+---
 
--showing the token number to the user when registration is successfull
--showing all the successfull regestered user for token
+## ⚙️ Features
 
-objective for sprint4
--allowing login for doctor (doctor@gmail.com      --- Doctor.@321)
--allowing them to update the realtime 
--
+- Token generation for multiple hospital departments (e.g., OPD, Emergency, Lab).
+- Real-time display of token numbers.
+- Admin dashboard for managing departments and monitoring queue status.
+- Scalable and modular design for easy deployment and extension.
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**  
+- HTML, CSS, JavaScript
+
+**Backend:**  
+- Python (Flask or Django)
+
+**DevOps Tools:**  
+- Git & GitHub  
+- Docker  
+- GitHub Actions (or Jenkins)  
+- CI/CD Pipeline Integration
+
+---
+
+## 🎯 Learning Outcomes
+
+- Gained hands-on experience in implementing **DevOps practices** from development to deployment.
+- Learned how to **containerize** a full-stack application using **Docker**.
+- Understood and applied **CI/CD pipelines** to automate build, test, and deployment processes.
+- Practiced using **version control** with Git and collaborating via GitHub.
+- Improved knowledge in managing **web applications**, backend routing, and frontend interaction.
+
+---
+
+## 🚀 How to Run
+
+```bash
+# Clone the repository
+git clone https://github.com/PemaYangchenn/DevOps_Hospital-token-system.git
+
+# Navigate into the project directory
+cd DevOps_Hospital-token-system
+
+# Build and run the Docker container
+docker-compose up --build
